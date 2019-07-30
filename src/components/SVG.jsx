@@ -14,6 +14,8 @@ const Wrapper = styled.svg`
   fill: ${props => props.fill};
   left: ${props => props.left};
   top: ${props => props.top};
+  fill-opacity: ${props => props.fillOpacity}
+  stroke-opacity:  ${props => props.strokeOpacity}
 `
 
 const icons = {
@@ -79,7 +81,7 @@ const icons = {
   },
 }
 
-const SVG = ({ stroke, fill, width, icon, left, top, hiddenMobile }) => (
+const SVG = ({ stroke, fill, width, icon, left, top, hiddenMobile, fillOpacity, strokeOpacity }) => (
   <Wrapper
     viewBox={icons[icon].viewBox}
     stroke={stroke}
@@ -88,6 +90,8 @@ const SVG = ({ stroke, fill, width, icon, left, top, hiddenMobile }) => (
     left={left}
     top={top}
     hiddenMobile={hiddenMobile}
+    fillOpacity={fillOpacity}
+    strokeOpacity={strokeOpacity}
   >
     {icons[icon].shape}
   </Wrapper>
@@ -103,6 +107,8 @@ SVG.propTypes = {
   left: PropTypes.string,
   top: PropTypes.string,
   hiddenMobile: PropTypes.bool,
+  fillOpacity: PropTypes.string,
+  strokeOpacity: PropTypes.string
 }
 
 SVG.defaultProps = {
@@ -112,4 +118,6 @@ SVG.defaultProps = {
   left: '0%',
   top: '0%',
   hiddenMobile: false,
+  fillOpacity: '0.2',
+  strokeOpacity: '0.2'
 }
